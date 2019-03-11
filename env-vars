@@ -1,0 +1,47 @@
+### Path to keys
+PathToYourSshPublicKey=~/.ssh/id_rsa_COR.pub
+PathToYourSshPrivateKey=~/.ssh/id_rsa_COR
+PathToYourApiPrivateKey=~/.oci/oci_api_key.pem
+### Authentication details
+export TF_VAR_tenancy_ocid=ocid1.tenancy.oc1..aaaaaaaani6nzm6hh7ssycbmzdnakvnwgp6si5go277fptjwcchm76h4f5la
+export TF_VAR_user_ocid=ocid1.user.oc1..aaaaaaaagmrlxkwiul6jh4qdkxel7w7tmlm443pdes4jd5zfwqvcndwj2ybq
+export TF_VAR_fingerprint=5c:97:a9:3d:83:c1:38:a0:9e:21:aa:91:76:da:10:7f
+export TF_VAR_private_key_path="${PathToYourApiPrivateKey}"
+### Compartment
+export TF_VAR_compartment_ocid=ocid1.compartment.oc1..aaaaaaaa3ijnmeyopqdthtsatmset33sgfxb6i35smr3hfiugt5rx27ggita
+### Public/private keys used on the instances
+export TF_VAR_ssh_public_key=$(cat ${PathToYourSshPublicKey} 2>/dev/null)
+export TF_VAR_ssh_private_key=$(cat ${PathToYourSshPrivateKey} 2>/dev/null)
+export TF_VAR_api_private_key=$(cat ${PathToYourApiPrivateKey} 2>/dev/null)
+### Log
+# export TF_LOG=TRACE
+# export TF_LOG_PATH='./terraform.log'
+### Target Database
+# export TF_VAR_target_db_admin_pw=MarchMadness!
+export TF_VAR_target_db_ip=10.0.3.2
+export TF_VAR_target_db_srv_name=apexDB_iad1j3.privatesubnetts.corfinapex.oraclevcn.com
+export TF_VAR_target_db_name=`echo $TF_VAR_target_db_srv_name|awk -F. '{print $1}'`
+### Compute Setting
+# TF_VAR_region : us-phoenix-1 | us-ashburn-1 | eu-frankfurt-1 | uk-london-1 | ca-toronto-1
+export TF_VAR_region=us-ashburn-1
+# TF_VAR_AD : 1 | 2 | 3
+export TF_VAR_AD=1
+# TF_VAR_InstanceOSVersion : 7.6 or Oracle Linunx 7.x version which is available in OCI
+export TF_VAR_InstanceOSVersion=7.6
+# TF_VAR_URL_ORDS_file : Object Storage URL for ords.war
+export TF_VAR_URL_ORDS_file=https://objectstorage.us-ashburn-1.oraclecloud.com/n/corfinapex/b/binaries/o/ords.war
+# TF_VAR_web_srv : 0 => Jetty, 1 => Tomcat
+export TF_VAR_web_srv=1
+# TF_VAR_URL_tomcat_file : Object Storage URL for Tomcat 8.5 tar.gz file, required only when tomcat is used for Web server
+export TF_VAR_URL_tomcat_file=https://objectstorage.us-ashburn-1.oraclecloud.com/n/corfinapex/b/binaries/o/apache-tomcat-8.5.38.tar.gz
+export TF_VAR_com_port=8080
+export TF_VAR_ComputeDisplayName=ORDSvm
+export TF_VAR_InstanceName=ORDSvm
+export TF_VAR_InstanceShape=VM.Standard2.1
+# TF_VAR_Secure_FQDN_access : 0 => Yes(Enabled FQDN access with CA SSL), 1 => No(Access w/ IP address)
+export TF_VAR_Secure_FQDN_access=1
+#export TF_VAR_ZoneName=
+export TF_VAR_URL_APEX_file=https://objectstorage.us-ashburn-1.oraclecloud.com/n/corfinapex/b/binaries/o/apex_18.2_en.zip
+# TF_VAR_APEX_install_mode : 0 => Full Environment mode, 1 => Runtime Environment mode
+export TF_VAR_APEX_install_mode=0
+export TF_VAR_subnet_ocid=ocid1.subnet.oc1.iad.aaaaaaaaym3v4h3olocfijwlovetlffq643btdgyohjpvohudnjdww3fzv7q
